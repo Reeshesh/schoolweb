@@ -2,23 +2,16 @@ import * as React from "react";
 import { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import user from './img/avatar.png'
-import home from './img/Vector (3).png'
-import hw from './img/Note.png'
-import video from './img/Video.png'
-import notes from './img/Notes.png'
-import books from './img/Document Pdf.png'
-import routine from './img/ic_baseline-subject.png'
-import attendance from './img/registration.png'
-import calendar from './img/ant-design_calendar-outlined.png'
-import bus from './img/Bus.png'
-import course from './img/ep_video-play.png'
-import education from './img/graduate.png'
-import info from './img/info.png'
-import paid from './img/payment 1.png'
-import credit from './img/Layer 2.png'
-import grade from './img/grade.png'
-import report from './img/Vector (4).png'
+import user from '../../img/avatar.png'
+import home from '../../img/Vector (3).png'
+import hw from '../../img/Note.png'
+import video from '../../img/Video.png'
+import attendance from '../../img/registration.png'
+import calendar from '../../img/ant-design_calendar-outlined.png'
+import course from '../../img/ep_video-play.png'
+import notice from '../../img/Board Presentation.png'
+import mark from '../../img/emojione-v1_heavy-check-mark.png'
+import report from '../../img/Vector (4).png'
 import SearchIcon from "@mui/icons-material/Search";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import {
@@ -42,6 +35,7 @@ import {
 import { ChevronRight } from "@mui/icons-material";
 
 const Search = styled("div")(({ theme }) => ({
+  // position: "relative",
   display: 'flex',
   borderRadius: theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
@@ -56,13 +50,23 @@ const Search = styled("div")(({ theme }) => ({
   },
 }));
 
+// const SearchIconWrapper = styled("div")(({ theme }) => ({
+//   // padding: theme.spacing(0, 2),
+//   height: "100%",
+//   // position: "absolute",
+//   pointerEvents: "none",
+//   display: "flex",
+//   alignItems: "center",
+//   justifyContent: "center",
+// }));
+
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: "inherit",
   "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
     // paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create("width"),
+    transition: '0.3s ease',
     width: "100%",
     [theme.breakpoints.up("sm")]: {
       width: "12ch",
@@ -82,7 +86,8 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'space-between',
 }));
 
-const Header = () => {
+const Header2 = () => {
+
   const [searchShow, setsearchShow] = useState(false);
   const [open, setOpen] = React.useState(false);
 
@@ -102,8 +107,9 @@ const Header = () => {
     <div>
       <AppBar position="static" className="bg-white">
         <Container maxWidth="xl">
-        <Toolbar disableGutters sx={{display: 'flex', justifyContent: 'space-between'}}>
-            <Avatar src="https://avatars.githubusercontent.com/u/86892846?v=4" alt="" />
+          <Toolbar disableGutters sx={{display: 'flex', justifyContent: 'space-between'}}>
+          <Avatar src="https://avatars.githubusercontent.com/u/86892846?v=4" alt="" />
+
             <Box pl='1.5rem' sx={{display: {
                 xs: searchShow ? 'none' : 'block',
                 sm: 'block'
@@ -115,7 +121,7 @@ const Header = () => {
                 color="#226CE0"
                 fontWeight="600"
               >
-                Welcome Student
+                Welcome Teacher
               </Typography>
               <Box display="flex" sx={{ justifyContent: "center" }}>
                 <Typography
@@ -135,7 +141,7 @@ const Header = () => {
               <Toolbar sx={{ px: "0px" }}>
                 <form action="">
                   <Search>
-                      <IconButton onClick={searchExpand} className='header-icon'>
+                      <IconButton className='header-icon' onClick={searchExpand}>
                         <SearchIcon fontSize="small"/>
                       </IconButton>
                       <StyledInputBase id="search-input"
@@ -148,12 +154,11 @@ const Header = () => {
                   <NotificationsIcon fontSize="small"/>
                 </IconButton>
                 
-                <IconButton
+                <IconButton className='header-icon'
                   color="inherit"
                   aria-label="open drawer"
                   edge="end"
                   onClick={handleDrawerOpen}
-                   className='header-icon'
                 >
                   <MenuIcon fontSize="small"/>
                 </IconButton>
@@ -203,6 +208,15 @@ const Header = () => {
             <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
+                  <img src={hw} alt="homework-icon"   />
+                </ListItemIcon>
+                <ListItemText>Homework Check</ListItemText>
+              </ListItemButton>
+            </ListItem>
+            <Divider/>
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
                   <img src={video} alt="online-icon"   />
                 </ListItemIcon>
                 <ListItemText>Online Class</ListItemText>
@@ -212,36 +226,9 @@ const Header = () => {
             <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  <img src={notes} alt="notes-icon"   />
-                </ListItemIcon>
-                <ListItemText>Notes</ListItemText>
-              </ListItemButton>
-            </ListItem>
-            <Divider/>
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <img src={books} alt="books-icon"   />
-                </ListItemIcon>
-                <ListItemText>Books</ListItemText>
-              </ListItemButton>
-            </ListItem>
-            <Divider/>
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <img src={routine} alt="routine-icon"   />
-                </ListItemIcon>
-                <ListItemText>Routine</ListItemText>
-              </ListItemButton>
-            </ListItem>
-            <Divider/>
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
                   <img src={attendance} alt="attendance-icon"   />
                 </ListItemIcon>
-                <ListItemText>Attendance</ListItemText>
+                <ListItemText>Student Attendance</ListItemText>
               </ListItemButton>
             </ListItem>
             <Divider/>
@@ -257,63 +244,27 @@ const Header = () => {
             <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  <img src={bus} alt="Transportation-icon"   />
+                  <img src={course} alt="upload-icon"   />
                 </ListItemIcon>
-                <ListItemText>Transportation</ListItemText>
+                <ListItemText>Upload Video</ListItemText>
               </ListItemButton>
             </ListItem>
             <Divider/>
             <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  <img src={course} alt="course-icon"   />
+                  <img src={notice} alt="notice-icon"   />
                 </ListItemIcon>
-                <ListItemText>Course Video</ListItemText>
+                <ListItemText>Notice Board</ListItemText>
               </ListItemButton>
             </ListItem>
             <Divider/>
             <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  <img src={education} alt="education-icon"   />
+                  <img src={mark} alt="mark-icon"   />
                 </ListItemIcon>
-                <ListItemText>Previous Education</ListItemText>
-              </ListItemButton>
-            </ListItem>
-            <Divider/>
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <img src={info} alt="Information-icon"   />
-                </ListItemIcon>
-                <ListItemText>Information</ListItemText>
-              </ListItemButton>
-            </ListItem>
-            <Divider/>
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <img src={paid} alt="paid-icon"   />
-                </ListItemIcon>
-                <ListItemText>Fee Paid</ListItemText>
-              </ListItemButton>
-            </ListItem>
-            <Divider/>
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <img src={credit} alt="credit-icon"   />
-                </ListItemIcon>
-                <ListItemText>Credit Fee</ListItemText>
-              </ListItemButton>
-            </ListItem>
-            <Divider/>
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <img src={grade} alt="grade-icon"   />
-                </ListItemIcon>
-                <ListItemText>Grade Sheet</ListItemText>
+                <ListItemText>Mark Entry</ListItemText>
               </ListItemButton>
             </ListItem>
             <Divider/>
@@ -334,4 +285,4 @@ const Header = () => {
     </div>
   );
 };
-export default Header;
+export default Header2;

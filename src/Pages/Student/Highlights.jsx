@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/css"; 
 import "swiper/css/navigation";
 import { Navigation } from "swiper";
-import '../style.css';
+import '../../style.css';
 
 const HighlightCard = styled('div')(({ theme }) => ({
   borderWidth: '1px 1px 1px 0px',

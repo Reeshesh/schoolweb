@@ -1,9 +1,9 @@
 import { Box, Button, Container, Grid, Typography } from '@mui/material'
 import React from 'react'
-import books from './img/Vector (1).png'
-import hw from './img/Vector (2).png'
-import grade from './img/Result.png'
-import bus from './img/School Bus.png'
+import books from '../../img/Vector (1).png'
+import hw from '../../img/Vector (2).png'
+import grade from '../../img/Result.png'
+import bus from '../../img/School Bus.png'
 
 function Resources() {
   return (

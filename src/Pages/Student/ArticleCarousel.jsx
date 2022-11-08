@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { Navigate } from 'react-router-dom';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Avatar, Box, Card, CardContent, CardMedia, Container, Typography } from '@mui/material';
-import article from './img/Frame 11.png'
-import avatar from './img/Frame 15.png'
+import article from '../../img/Frame 11.png'
+import avatar from '../../img/Frame 15.png'
 
 function ArticleCarousel() {
+ 
   return (
     <Box sx={{ mt: '2rem'}} className='article'>
       <Container sx={{padding: {xs: '0'}  }}>

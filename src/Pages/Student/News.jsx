@@ -1,10 +1,12 @@
+import React, { useEffect, useState } from 'react'
+import { Navigate } from 'react-router-dom';
 import { Container, Grid, ImageListItemBar } from '@mui/material'
 import { Box } from '@mui/system'
-import React from 'react'
-import gamenews2 from './img/Frame 71.png'
+import { Link } from 'react-router-dom'
+import gamenews2 from '../../img/Frame 71.png'
 
 function News() {
-
+ 
   return (
     <div className='bg-white'>
       <Container sx={{mt: "2.5rem"}}>
@@ -45,7 +47,8 @@ function News() {
         </Grid> 
         <Grid container sx={{m: "1rem 0", width: "100%"}}>
           <Grid item xs={5} sx={{ pr: "16px"}}>
-            <a href="https://kids.nationalgeographic.com/games/quizzes/article/cheetahs" target='_blank' rel="noreferrer">
+            {/* <a href="https://kids.nationalgeographic.com/games/quizzes/article/cheetahs" target='_blank' rel="noreferrer"> */}
+            <Link to='/news'>
               <Box position="relative" sx={{height: '100%'}}>
                 <Box position="absolute" className="image-overlay"></Box>
                 <img src='article.webp' alt='' width='100%' height="100%"/>
@@ -59,7 +62,8 @@ function News() {
                   position="bottom"
                 />
               </Box>
-            </a>
+            </Link>
+            {/* </a> */}
           </Grid>
           <Grid item xs={7}>
             <Box sx={{ display: 'flex', justifyContent: 'center', height: '100%'}}> 
