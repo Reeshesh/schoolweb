@@ -13,12 +13,14 @@ import GradeSheet from './Pages/Student/GradeSheet';
 import Information from './Pages/Student/Information';
 import Profile from './Pages/Student/Profile';
 import Login from './Components/Common/Login';
+import HomePage from './Pages/HomePage';
 
 function App() {
   return (
     <div>
       <Routes>
-        <Route path='/' element={<Login/>}></Route>
+      <Route path='/' element={<HomePage/>}></Route>
+        <Route path='/studentlogin' element={<Login/>}></Route>
         <Route path='/student' element={<Student/>}></Route>
         <Route path='/profile' element={<Profile/>}></Route>
         <Route path='/homework' element={<Homework/>}></Route>

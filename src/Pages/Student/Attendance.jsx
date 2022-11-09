@@ -86,8 +86,8 @@ else{
             </Grid>
         </Container>
         <Container>
-          <Box backgroundColor='white' padding= '10px'>
-            <Stack direction="row" justifyContent="center" alignItems="center" spacing={2}>
+          <Box backgroundColor='white' padding= '5px'>
+            <Stack direction="row" justifyContent="center" spacing={5}>
               <Item sx={{backgroundColor: '#226CE0'}}> {totaldays} <br/> Total Days </Item>
               <Item sx={{backgroundColor: '#00BE57'}}> {present} <br/> Present </Item>
               <Item sx={{backgroundColor: '#F97770'}}> {absent}  <br/> Absent </Item>  

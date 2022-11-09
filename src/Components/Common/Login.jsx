@@ -6,7 +6,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { Button, FormControl, InputLabel, TextField, Typography } from '@mui/material';
+import { Button, FormControl, Grid, InputLabel, TextField, Typography } from '@mui/material';
 import axios from 'axios';
 import LoginIcon from '@mui/icons-material/Login';
 import { useNavigate } from 'react-router-dom';
@@ -36,6 +36,7 @@ function Login() {
         .then(response => {
           console.log(response);
           localStorage.setItem("authenticated", true);
+          localStorage.setItem("token", response.data.token);
           navigate("/student");
           console.log(response);
         })
@@ -65,6 +66,7 @@ function Login() {
     <Typography sx={{fontWeight: '700', fontSize: '20px'}}> Welcome To </Typography>
     <Typography sx={{fontWeight: '400', fontSize: '24px'}}> SMS </Typography>
     </Typography>
+    <Grid direction='column'>
     <form onSubmit={loginApi}>
         <TextField
           label="Username"
@@ -76,7 +78,6 @@ function Login() {
             startAdornment: <InputAdornment position="start"><EmailIcon/></InputAdornment>,
           }}
         />
-        <br></br>
         <FormControl variant="outlined" sx={{ m: 1, width: '50ch' }}>
           <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
             <OutlinedInput
@@ -106,7 +107,6 @@ function Login() {
             />
         </FormControl>
         <Typography variant='subtitle2'> Forgot you password? </Typography>
-        <br></br>
         <Button variant="contained" onClick={loginApi} 
         sx={{
             position: 'relative',
@@ -116,11 +116,12 @@ function Login() {
             textTransform: 'none',
             background: 'linear-gradient(to left, #226CE0, #FFFAFF 124.45%)',
             boxShadow: 0,
-            bottom: '-25ch',
+            bottom: '-30ch',
             }}> 
             <LoginIcon sx={{pr: '10px'}}/> Login
         </Button>
     </form>
+    </Grid>
     </div>
   )
 }
