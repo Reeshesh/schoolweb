@@ -1,5 +1,5 @@
 import React from 'react'
-import { Avatar, Button, Stack, Typography } from '@mui/material'
+import { Avatar, Button, Grid, Stack, Typography } from '@mui/material'
 import { Link as RouterLink, MemoryRouter } from 'react-router-dom';
 import { Container } from '@mui/system';
 
@@ -9,29 +9,27 @@ const LinkBehavior = React.forwardRef((props, ref) => (
 
 const buttonStyles ={
     button: {
-        position: 'relative',
         width: '50ch',
-        height: '60px',
+        height: '52px',
         borderRadius: '99px',
         textTransform: 'none',
         background: 'linear-gradient(to left, #226CE0, #FFFAFF 124.45%)',
         boxShadow: 0,
-        bottom: '-25ch',
+        marginTop: '20px',
     },
 };
 
 const HomePage = () => {
   return (
-    <div align='center'>
+    <div>
         <Container>
-            <Avatar variant='square' src="" alt="School Logo" />
-            <Typography sx={{fontWeight: 600}}> Welcome Back! </Typography>
-            <Typography sx={{fontWeight: 400}}> Select your Role to continue </Typography>
-           
+          <Grid container flexDirection='column' alignItems='center'>
+            <Avatar sx={{width: '116px', height:'116px', my: '50px',}}variant='square' src="/" alt="School Logo" />
+            <Typography sx={{fontWeight: 600, paddingTop: '83px'}}> Welcome Back! </Typography>
+            <Typography sx={{fontWeight: 400, paddingBottom: '42px'}}> Select your Role to continue </Typography>
             <Button variant='contained' sx={buttonStyles.button} component={RouterLink} to="/studentlogin"> Student </Button>
-           
-            <Button variant='contained' sx={buttonStyles.button}> Teacher </Button>
-            
+            <Button variant='contained' sx={buttonStyles.button} component={RouterLink} to="/teacherlogin"> Teacher </Button>
+          </Grid>
         </Container>
     </div>
   )
