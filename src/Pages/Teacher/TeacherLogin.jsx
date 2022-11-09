@@ -11,54 +11,54 @@ import axios from 'axios';
 import LoginIcon from '@mui/icons-material/Login';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { FlareSharp } from '@mui/icons-material';
 
 function TeacherLogin() {
-  const navigate = useNavigate();
+    const navigate = useNavigate();
 
-  const [authenticated, setauthenticated] = useState(
-    localStorage.getItem(localStorage.getItem("authenticated") || false)
-  );
+    const [authenticated, setauthenticated] = useState(
+        localStorage.getItem(localStorage.getItem("authenticated") || false)
+    );
 
-    const [values, setValues] = React.useState({
+    const[values, setValues] = React.useState({
         Username: '',
         password: '',
         showPassword: false,
     });
-    
     const loginApi = (e) => {
-      e.preventDefault();
-        axios.post(`${process.env.REACT_APP_base_URL}StudentLogin`
-        , {
-            "userName": values.Username,
-            "userPassword": values.password
-          }
-      )
-        .then(response => {
-          console.log(response);
-          localStorage.setItem("authenticated", true);
-          localStorage.setItem("token", response.data.token);
-          navigate("/student");
-          console.log(response);
-        })
-        .catch(error => {
-          console.log(error);
-        })
-    }
-      const handleChange = (prop) => (event) => {
-        setValues({ ...values, [prop]: event.target.value });
-      };
-    
-      const handleClickShowPassword = () => {
-        setValues({
-          ...values,
-          showPassword: !values.showPassword,
-        });
-      };
-    
-      const handleMouseDownPassword = (event) => {
-        event.preventDefault();
-      };
- 
+        e.preventDefault();
+          axios.post(`${process.env.REACT_APP_base_URL}TeacherLogin`
+          , {
+              "userName": values.Username,
+              "userPassword": values.password
+            }
+        )
+          .then(response => {
+            console.log(response);
+            localStorage.setItem("authenticated", true);
+            localStorage.setItem("token", response.data.token);
+            navigate("/teacher");
+            console.log(response);
+          })
+          .catch(error => {
+            console.log(error);
+          })
+      }
+        const handleChange = (prop) => (event) => {
+          setValues({ ...values, [prop]: event.target.value });
+        };
+      
+        const handleClickShowPassword = () => {
+          setValues({
+            ...values,
+            showPassword: !values.showPassword,
+          });
+        };
+      
+        const handleMouseDownPassword = (event) => {
+          event.preventDefault();
+        };
+
   return (
     <div align='center'>
     <Typography marginTop= '50px'>
@@ -126,5 +126,6 @@ function TeacherLogin() {
     </div>
   )
 }
+
 
 export default TeacherLogin
